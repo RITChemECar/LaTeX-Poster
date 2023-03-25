@@ -1,0 +1,157 @@
+%Useful Packages. Creates poster itself and theme.
+%Lipsum just helps me determine how the stuff looks in boxes.
+
+\documentclass[20pt,a0poster,landscape]{tikzposter}
+\usepackage{graphicx}
+\graphicspath{{/Users/julianconnaughton/Downloads}}
+\usepackage{float}
+\usetheme{White}
+\usepackage{caption}
+\usepackage{multicol}
+
+%Creates the title of the poster
+
+\begin{document}
+\title {The ThermoTiger}
+\author{\Large RIT ChemE Car team members: Tomasz Mazur, Jacob Dapper-Campagnola, Nora Will, Julian Connaughton, Misael Santos, William Schepp, Jacky Chen, Jonas Hogan, Tyler Mattern, Cole Gabel, Benson Dinh, Jordan Woodhouse, Jake Kuhl, Jason Yu, Zachary Garrote}
+\titlegraphic{\includegraphics[width=0.20\textwidth]{RITLogos}}
+\maketitle
+
+\begin{columns}
+%COLUMN 1 (Creates one third of the poster)
+\column{0.33}
+%Block A (Starting Reaction Box)
+\block{Starting Reaction}{
+\bigskip
+The reaction that powers up the ThermoTiger is:
+\bigskip
+\begin{equation}
+CaO(s) + H_2O(l) \longrightarrow Ca(OH)_2 (s)
+\bigskip
+\end{equation}
+\begin{flushleft}
+This exothermic reaction increases the temperature of the heating vessel. This will create a temperature gradient between the heating the cooling vessels, which, in turn, cause the TEGs to generate a voltage difference. When a load is applied to the TEGs wired in series, an electrical current is generated, which will power the motor.
+\end{flushleft}
+\bigskip
+%Insert Data and Graphs
+\begin{center}
+\includegraphics[width = 0.30\linewidth]{TEG.jpg}
+\end{center}
+\begin{center}
+\textbf{Figure 1: }
+This is the TEG, and the side facing out towards us is cold, whereas the other side is hot.
+\end{center}
+}
+
+%Block B (Stopping Reaction Box and Data)
+\block{Stopping Reaction}{
+\begin{center}
+\includegraphics[width = 0.225\linewidth]{IodineClock}
+\end{center}
+\bigskip
+\begin{flushleft}
+The stopping reaction for the ThermoTiger is the result of two opposing reactions, as shown below:
+\end{flushleft}
+\bigskip
+\begin{enumerate}
+\bigskip
+\item $2I(aq) + H_2O_2 (aq) + 2H^+(aq) \longrightarrow I_2(aq) + 2H_2O(l)$
+\item $I_2 (aq) + C_6H_8O_6 (aq) \longrightarrow C_6H_6O_6 (aq) + 2 H^+(aq) + 2 I^-(aq)$
+\bigskip
+\end{enumerate}
+\bigskip
+\innerblock{How this reaction is used to stop the car}{
+\begin{itemize}
+\bigskip
+\item Iodine reacts with starch to form a blue-black complex, which, in significant concentrations, can block out light.
+\item Vitamin C converts iodine into its anion form (iodide) and hydrogen peroxide does the reverse.
+\item Eventually, vitamin C is consumed, the starch complex is formed, and the LED dampens in color.
+\item Molecular iodine and starch react to form a complex that is blue-black, block the light coming through from the white LED. This dampening is sensed by a photo resistor that’s connected to an Arduino that is responsible for the car’s motion (connected to the motor and thermal electric generator). Once the resistance threshold is reached, the motor will be turned off. Code is written in C/C++
+\end{itemize}
+}
+%Insert Testing Data
+}
+
+\column{0.33}
+
+%Block C (The ThermoTiger Picture)
+\block{The ThermoTiger}{
+\bigskip
+\begin{center}
+\includegraphics[width = 0.45\linewidth]{BestCar.jpg}
+\end{center}
+\begin{center}
+This machine is roaring to go!
+\end{center}
+}
+
+%Block D (Safety)
+\block{Safety}{
+\bigskip
+\begin{enumerate}
+\item\textbf{Starting Reaction:}
+\begin{itemize}
+\item Calcium Oxide is a solid and is a skin and lung irritant. It is destructive to the tissue of mucous membranes and the upper respiratory tract.
+\subitem{HMIS Health Ratings (0-4):}
+\subitem{Health: \textbf{3}}
+\subitem{Flammability: \textbf{0}}
+\subitem{Physical: \textbf{1}}
+\item Calcium Hydroxide is a solid, caustic product that is corrosive when it comes into contact with the eye. It can cause blindness or corneal damage. Skin contact will cause inflammation and blistering.
+\subitem{HMIS Health Ratings (0-4):}
+\subitem{Health: \textbf{3}}
+\subitem{Flammability: \textbf{0}}
+\subitem{Physical: \textbf{0}}
+\end{itemize}
+However, $Ca(OH)_2$ (s) does not react with the containment vessel it is in. In order to minimize the potential hazards, it is important to wear the appropriate PPE.
+\bigskip
+\item\textbf{Excessive Heat:}
+\begin{flushleft}
+Since the starting reaction is exothermic, it will generate heat, and this heat is another hazard. A solution to protect against or minimize the potential hazards by the heat would be to wear the appropriate PPE.
+\end{flushleft}
+\end{enumerate}
+}
+
+\column{0.34}
+
+%Block E (Unique Features\Environmental and Safety Designs)
+\block{Unique Features\ Environmental and Safety Designs}{
+\bigskip
+\innerblock{Unique Features}{
+A welded stainless steel chamber was used in the design to: 
+\begin{itemize}
+\item Prevent reaction between the chamber and heating reaction reagents.
+\item Prevent leakage.
+\item Prevent deformation due to the high temperatures.
+\item Maintain good conduction between the reactor and the TEGs.
+\end{itemize}
+\bigskip
+Some other distinctive features about the ThermoTiger include:
+\begin{itemize}
+\item Custom 3D printed parts.
+\end{itemize}
+}
+\bigskip
+\innerblock{Environmental/ Safety Designs}{
+\begin{itemize}
+\item The reactor is enclosed to prevent spillage of chemicals, and chemical products created by the starting reaction of the car must be neutralized before disposal through dilution and a chemical reaction with an acid.
+\item The heating reactor is insulated to prevent the high temperature created by the starting reaction from destroying the car and harming anyone that touches it. 
+\end{itemize} 
+}
+
+}
+
+\block{Circuit Diagram}{
+
+\begin{center}
+\includegraphics[width = 0.50\linewidth]{Circuit}
+\end{center}
+\begin{center}
+\textbf{Figure 2: }
+This is the Circuit Diagram for the ThermoTiger. 
+\end{center}
+
+}
+
+\end{columns}
+
+\end{document}
